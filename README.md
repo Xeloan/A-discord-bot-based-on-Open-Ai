@@ -10,6 +10,6 @@ When you send a message (only works in discord channel not direct message), the 
 The image generating is much easier. Just type "/D descriptions" and the message will be sent to DALL-E. Then the bot will send you the link of the picture generated.
 If the description contains sensitive contents like "sexy", whicb will cause request error, the bot will send you "Invalid content" instead. (This function is important or the bot will break down if yoy send sensitive contents)
 # Preparation
-I suggest viewing the tuition: https://www.twilio.com/blog/build-gpt-3-discord-chatbot-node-js. The previous steps are right but in the code he made a mistake, can you find it?
+I suggest viewing the tuition: https://www.twilio.com/blog/build-gpt-3-discord-chatbot-node-js. The previous steps are right but in the code he made a mistake, can you find it? (The command "touch" may not work so you can create .env by hand in the catague. Notice that my .env is a little different in the naming so don't copy his.
 # The last thing
 You can just copy my code if you are lazy. I think there is no bug in it and it will permanently work unless there is a power or Internet outage.
