@@ -14,8 +14,8 @@ I suggest viewing the tuition: https://www.twilio.com/blog/build-gpt-3-discord-c
 # The last thing
 You can just copy my code if you are lazy. I think there is no bug in it and it will permanently work unless there is a power or Internet outage.
 # Examples
-![image](https://user-images.githubusercontent.com/105624127/209050227-d36e2667-4222-40ba-ab4e-991e9f7ae181.png)
-![image](https://user-images.githubusercontent.com/105624127/209050305-ac0c1903-f2f1-4fc7-838f-17ba921dd433.png)
+![image](https://user-images.githubusercontent.com/105624127/209052065-8929d7b4-dd82-4dee-b4aa-70a7a6d56124.png)
+![image](https://user-images.githubusercontent.com/105624127/209052164-cfd793a0-fb42-49ae-8823-0512309910cd.png)
 ![image](https://user-images.githubusercontent.com/105624127/209050333-303f447d-0398-40f2-acef-29fb4dea0bf2.png)
 ![image](https://user-images.githubusercontent.com/105624127/209050419-6bd62689-367c-423d-9fcd-fb77b1fab145.png)
 ![image](https://user-images.githubusercontent.com/105624127/209050560-86df37f6-2596-4e41-ab1d-202476cebb72.png)
