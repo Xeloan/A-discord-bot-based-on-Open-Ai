@@ -12,7 +12,7 @@ If the description contains sensitive contents like "sexy", whicb will cause req
 # Preparation
 I suggest viewing the tuition: https://www.twilio.com/blog/build-gpt-3-discord-chatbot-node-js. The previous steps are right but in the code he made a mistake, can you find it? (The command "touch" may not work so you can create .env by hand in the catalogue. Notice that my .env is a little different in the naming so don't copy his.
 # The last thing
-You can just copy my code if you are lazy. I think there is no bug in it and it will permanently work unless there is a power or Internet outage.
+You can just copy my code if you are lazy. I think there is no bug in it and it will permanently work unless there is a power or Internet outage. You can get the already-made client in the releases.
 # Examples
 ![image](https://user-images.githubusercontent.com/105624127/209052065-8929d7b4-dd82-4dee-b4aa-70a7a6d56124.png)
 ![image](https://user-images.githubusercontent.com/105624127/209052164-cfd793a0-fb42-49ae-8823-0512309910cd.png)
