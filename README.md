@@ -5,3 +5,4 @@ PS: Indeed, I'm really a green hand of promgraming. It was not until I ran acros
 # Function and Features
 The chatting function is based on Open Ai's 'text-completion'. You can find the description on the main website: https://beta.openai.com/docs/guides/completion
 When you send a message (only works in discord channel not direct message), the bot will combine the message you've sent into a prompt which to Open Ai api and then send you the response generated through Open Ai api. After that the response will also be added to the prompt along with the next message you send and the send the whole prompt again, thus resulting in a fluent chat where the bot can understand contexts. After the prompt reach a certain amount, it will be automatically cut the oldest messages to prevent the large costs. (The huger your prompt is, the higher cost the completion will make.)
+the
