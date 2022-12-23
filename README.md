@@ -33,6 +33,8 @@ Open the Xia Client.js with nodejs (test is just a copy of it for you to make ch
 You can just copy my code if you are lazy. I think there is no bug in it and it will permanently work unless there is a power or Internet outage. You can get the already-made client in the releases.
 
 The module I have used is dotenv discord.js openai fs path axios crypto. You can use npm install if you need them.
+
+Please notice: for users in areas where you have to use VPN or proxy to connect to the discord server, make sure your proxy can overtake all the network traffic like turning on the TUN mode in Clash For Windows. Nodejs usually skip system proxy.
 # Examples
 ![image](https://user-images.githubusercontent.com/105624127/209052065-8929d7b4-dd82-4dee-b4aa-70a7a6d56124.png)
 ![image](https://user-images.githubusercontent.com/105624127/209052164-cfd793a0-fb42-49ae-8823-0512309910cd.png)
