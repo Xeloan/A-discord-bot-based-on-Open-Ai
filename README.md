@@ -9,10 +9,30 @@ When you send a message (only works in discord channel not direct message), the 
 
 The image generating is much easier. Just type "/D descriptions" and the message will be sent to DALL-E. Then the bot will send you the link of the picture generated.
 If the description contains sensitive contents like "sexy", which will cause request error, the bot will send you "Invalid content" instead. (This function is important or the bot will break down if you send sensitive contents)
+###Recent Update
+V1.00001: a very small update. I add a channel verification to make the bot only work in one certain channel. (I haven't thoyght of a way to use just one bot in multiple channels) What's more, I improve the /D image generation to make a image cache in the DALLE_img folder and send the image itself instead of just a url, which will expire in hours.
 # Preparation
-I suggest viewing the tuition: https://www.twilio.com/blog/build-gpt-3-discord-chatbot-node-js. The previous steps are right but in the code he made a mistake, can you find it? (The command "touch" may not work so you can create .env by hand in the catalogue. Notice that my .env is a little different in the naming so don't copy his.
+After downloading and decompressing the Xia Client in the releases and installing nodejs on your computer
+First build a bot on discord:  (I just partly copy that written by Kav-K)
+- Create a new Bot on Discord Developer Portal: https://discord.com/developers/applications
+    - Applications -> New Application
+- Generate Token of the bot
+    - Select App (Bot) -> Bot -> Reset Token
+- Toogle PRESENCE INTENT:
+    - Select App (Bot) -> Bot -> PRESENCE INTENT, SERVER MEMBERS INTENT, MESSAGES INTENT, (basically turn on all intents)
+- Add Bot the the server.
+    - Select App (Bot) -> OAuth2 -> URL Generator -> Select Scope: Bot
+    - Bot Permissions will appear, select the desired permissions
+    - Copy the link generated below and paste it on the browser
+    - On add to server select the desired server to add the bot
+Next get the ID of the channel you've added the bot in: you can just open the channel and check the link (like https://discord.com/channels/974519864045756446/1047566067888820274 the 1047566067888820274 is the channel ID)
+Then generate an Open AI Api key: https://beta.openai.com/account/api-keys
+Finally paste the token of the bot, Open AI Api and the channel ID into the .env in the file you've downloaded
+Open the Xia Client.js with nodejs (test is just a copy of it for you to make changes), you will see login in the log and the bot send "Channel granted".
 # The last thing
 You can just copy my code if you are lazy. I think there is no bug in it and it will permanently work unless there is a power or Internet outage. You can get the already-made client in the releases.
+
+The module I have used is dotenv discord.js openai fs path axios crypto. You can use npm install if you need them.
 # Examples
 ![image](https://user-images.githubusercontent.com/105624127/209052065-8929d7b4-dd82-4dee-b4aa-70a7a6d56124.png)
 ![image](https://user-images.githubusercontent.com/105624127/209052164-cfd793a0-fb42-49ae-8823-0512309910cd.png)
