@@ -1,5 +1,5 @@
 require('dotenv').config();
-const { Client, GatewayIntentBits } = require('discord.js');
+const { Client, GatewayIntentBits, Discord } = require('discord.js');
 const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent,] });
 const { Configuration, OpenAIApi } = require("openai");
 const configuration = new Configuration({
@@ -15,34 +15,56 @@ const MAX_PROMPT_LENGTH = 1680  //set maximum length of the prompt
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
+  client.channels.cache.get(`${process.env.CHANNEL_ID}`).send("Channel granted");
+	
 });
 
 client.on("messageCreate", function (message) {
-   console.log('Usercontent：', message.content);
+   console.log('Content：', message.content);
    if (message.author.bot) return;
    // Ignore messages from other bots
+   if (`${message.channel.id}` !== `${process.env.CHANNEL_ID}`){
 
-if (message.content.startsWith("/D")) {   // Use the OpenAI API to generate an image based on the text after the "/D" command
-    (async () => {
-      try {
-        const text = message.content.slice(3);
-        message.reply(`Creating`);
-        const response = await openai.createImage({
-          prompt: text,
-          n: 1,
-          size: "1024x1024",
-        });
-        image_url = response.data.data[0].url;
-        message.reply(image_url);
-      } catch (error) {
-        console.error(error);
-        message.reply("Invalid content");
-      }
-    })();
-    return;
-  }
+	message.reply(`Invalid Channel`); //check whether it is the channel that match the ID you've input
+	return;
 
+}
 
+   if (message.content.startsWith("/D")) { //create image
+  (async () => {
+    const text = message.content.slice(3);
+    const creatingMessage = await message.reply(`Creating`);
+    try { 
+      const response = await openai.createImage({
+        prompt: text,
+        n: 1,
+        size: "1024x1024",
+      });
+      image_url = response.data.data[0].url;
+
+      // Download image to local file system
+      const image = await axios({
+        url: image_url,
+        responseType: 'arraybuffer'
+      });
+      const randomString = crypto.randomBytes(4).toString('hex');
+      const file = `${text}-${randomString}.png`;                    //random the name in order to prevent the same name when using the same description
+	fs.writeFileSync(path.join('./DALLE_img', file), image.data);
+	await creatingMessage.delete();                              //delete the "Creating"
+      message.reply({
+        files: [{
+          attachment: './DALLE_img/' + file,  //send the image
+          name: file
+        }]
+      });
+    } catch (error) {
+      console.error(error);
+	await creatingMessage.delete();
+      message.reply(`Invalid content`);
+    }
+  })();
+	return;
+}
 
    if (message.content.startsWith("/clear")) {      // Reset the prompt to its original value
     prompt =`The following is a conversation with an AI friend.It's Xeloan's good friend. Its name is Xia. It is talktive,curious, creative, clever, and very friendly.\n\nHuman: Hello, who are you?\nAI: I am Xeloan's friend Xia. Nice to meet you.\nHuman: `
