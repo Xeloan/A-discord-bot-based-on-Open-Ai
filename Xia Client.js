@@ -1,5 +1,9 @@
 require('dotenv').config();
 const { Client, GatewayIntentBits, Discord } = require('discord.js');
+const fs = require('fs');
+const path = require('path');
+const axios = require('axios');
+const crypto = require('crypto');
 const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent,] });
 const { Configuration, OpenAIApi } = require("openai");
 const configuration = new Configuration({
