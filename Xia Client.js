@@ -29,7 +29,7 @@ client.on("messageCreate", function (message) {
    // Ignore messages from other bots
    if (`${message.channel.id}` !== `${process.env.CHANNEL_ID}`){
 
-	message.reply(`Invalid Channel`); //check whether it is the channel that match the ID you've input
+	message.reply(`Invalid Channel`); //check whether it is the channel that matchs the ID you've input
 	return;
 
 }
