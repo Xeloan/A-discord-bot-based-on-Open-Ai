@@ -22,7 +22,7 @@ First build a bot on discord:  (I just partly copy that written by Kav-K)
     - Select App (Bot) -> Bot -> PRESENCE INTENT, SERVER MEMBERS INTENT, MESSAGES INTENT, (basically turn on all intents)
 - Add Bot the the server.
     - Select App (Bot) -> OAuth2 -> URL Generator -> Select Scope: Bot
-    - Bot Permissions will appear, select the desired permissions
+    - Bot Permissions will appear, select the administrator permissions
     - Copy the link generated below and paste it on the browser
     - On add to server select the desired server to add the bot
 Next get the ID of the channel you've added the bot in: you can just open the channel and check the link (like https://discord.com/channels/974519864045756446/1047566067888820274 the 1047566067888820274 is the channel ID)
