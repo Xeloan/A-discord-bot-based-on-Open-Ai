@@ -10,7 +10,9 @@ When you send a message (only works in discord channel not direct message), the 
 The image generating is much easier. Just type "/D descriptions" and the message will be sent to DALL-E. Then the bot will send you the link of the picture generated.
 If the description contains sensitive contents like "sexy", which will cause request error, the bot will send you "Invalid content" instead. (This function is important or the bot will break down if you send sensitive contents) Now the bot will send the image instead of url which will expire in hours.
 ## Recent Update
-V1.00001: a very small update. I add a channel verification to make the bot only work in one certain channel. (I haven't thought of a way to use just one bot in multiple channels) What's more, I improve the /D image generation to make an image cache in the DALLE_img folder and send the image itself instead of just a url, which will expire in hours.
+V1.00012: New small functions and performance improvement. I add a log function to it which can automatically write current chat history with the bot in to a log file named by the current UTC time in the logs folder(new command: /log which let the bot send you the current log). I also make the bot delete the "Creating" after sending the image. (That seems better) Finally, the bot now will ignore messages sent too quickly in order not to get banned by open AI.(Open ai api will report error if I send another request before it answer my previous request.
+
+V1.00001: A very small update. I add a channel verification to make the bot only work in one certain channel. (I haven't thought of a way to use just one bot in multiple channels) What's more, I improve the /D image generation to make an image cache in the DALLE_img folder and send the image itself instead of just a url, which will expire in hours.
 # Preparation
 After downloading and decompressing the Xia Client in the releases and installing nodejs on your computer
 First build a bot on discord:  (I just partly copy that written by Kav-K)
