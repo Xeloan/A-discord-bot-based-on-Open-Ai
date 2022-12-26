@@ -16,24 +16,49 @@ let prompt =`The following is a conversation with an AI friend.It's Xeloan's goo
 //Without it, for example, when you send a hello, the ai will autofill it into a "hello world" code of a computer........
 
 const MAX_PROMPT_LENGTH = 1680  //set maximum length of the prompt
-
+var logFileName = ``;
+var filePath = ``;
+let busy = false;
 client.on('ready', () => {
-  console.log(`Logged in as ${client.user.tag}!`);
   client.channels.cache.get(`${process.env.CHANNEL_ID}`).send("Channel granted");
-	
+  const currentTime = new Date().toISOString();
+  console.log(`[${currentTime}] Logged in as ${client.user.tag}!`);//↓↓↓get the UTC time as the name of the log files
+  const [year, month, day, hour, minute, second] = currentTime.match(/^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2}):(\d{2})/).slice(1);
+  const formattedTime = `${year}_${month}_${day}_${hour}_${minute}_${second}`;
+  logFileName = `${formattedTime}.log`;
+  filePath = `./logs/${logFileName}`;
+  fs.writeFileSync(`./logs/${logFileName}`, `[${currentTime}] Logged in as ${client.user.tag}!`+`\n`);
 });
 
 client.on("messageCreate", function (message) {
-   console.log('Content：', message.content);
    if (message.author.bot) return;
    // Ignore messages from other bots
    if (`${message.channel.id}` !== `${process.env.CHANNEL_ID}`){
 
-	message.reply(`Invalid Channel`); //check whether it is the channel that matchs the ID you've input
+        //check whether it is the channel that matchs the ID you've input
 	return;
 
 }
+const currentTime = new Date().toISOString();
+   console.log(`[${currentTime}] ${message.author.tag}: ${message.content}`);
+   fs.appendFileSync(filePath,`[${currentTime}] ${message.author.tag}: ${message.content}`+`\n`);
+   if (message.author.bot) return;
+   if (busy){
+   message.reply(`sent too fast`);  //ignore messages sent too fast
+   return;
+}
+   busy = true;
+if (message.content.startsWith("/log")) {  //show logs of chathistory with the bot
 
+     message.reply({
+      files: [{
+          attachment: filePath,
+          name: logFileName
+        }]
+});
+      busy = false;
+	return;
+}
    if (message.content.startsWith("/D")) { //create image
   (async () => {
     const text = message.content.slice(3);
@@ -64,20 +89,23 @@ client.on("messageCreate", function (message) {
     } catch (error) {
       console.error(error);
 	await creatingMessage.delete();
-      message.reply(`Invalid content`);
+        message.reply(`Invalid content`);
     }
   })();
+	busy = false;
 	return;
 }
 
    if (message.content.startsWith("/clear")) {      // Reset the prompt to its original value
     prompt =`The following is a conversation with an AI friend.It's Xeloan's good friend. Its name is Xia. It is talktive,curious, creative, clever, and very friendly.\n\nHuman: Hello, who are you?\nAI: I am Xeloan's friend Xia. Nice to meet you.\nHuman: `
     message.reply("Prompt cleared.");
+    busy = false;
     return;
 	}
    if (message.content.startsWith("/prompt")) { // Send the current prompt to the channel and its length
     message.reply(prompt)
     message.reply(`${prompt.length}`)
+    busy = false;
     return;
 	}
    while (prompt.length > MAX_PROMPT_LENGTH) {  
@@ -104,7 +132,8 @@ client.on("messageCreate", function (message) {
           });
         message.reply(`${gptResponse.data.choices[0].text.substring(4)}`);  // add the response to the prompt, which will automatically start with AI:
         prompt += `${gptResponse.data.choices[0].text.substring(0)}\n`;
-	  prompt += `Human: `;  // add Human: to let the AI better understand that this is a message sent by human
+	prompt += `Human: `;  // add Human: to let the AI better understand that this is a message sent by human
+	busy = false;
     })();
 });                
                             
