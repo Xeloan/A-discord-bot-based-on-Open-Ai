@@ -9,6 +9,8 @@ When you send a message (only works in discord channel not direct message), the 
 
 The image generating is much easier. Just type "/D descriptions" and the message will be sent to DALL-E. Then the bot will send you the link of the picture generated.
 If the description contains sensitive contents like "sexy", which will cause request error, the bot will send you "Invalid content" instead. (This function is important or the bot will break down if you send sensitive contents) Now the bot will send the image instead of url which will expire in hours.
+
+The bot generates chat logs in the folder logs named by the current UTC time. Use /log to let the bot show you the current log.
 ## Recent Update
 V1.00012: New small functions and performance improvement. I add a log function to it which can automatically write current chat history with the bot in to a log file named by the current UTC time in the logs folder(new command: /log which let the bot send you the current log). I also make the bot delete the "Creating" after sending the image. (That seems better) Finally, the bot now will ignore messages sent too quickly in order not to get banned by open AI.(Open ai api will report error if I send another request before it answer my previous request.
 
