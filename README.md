@@ -32,7 +32,7 @@ First build a bot on discord:  (I just partly copy that written by Kav-K)
 Next get the ID of the channel you've added the bot in: you can just open the channel and check the link (like https://discord.com/channels/974519864045756446/1047566067888820274 the 1047566067888820274 is the channel ID)
 Then generate an Open AI Api key: https://beta.openai.com/account/api-keys
 Finally paste the token of the bot, Open AI Api and the channel ID into the .env in the file you've downloaded
-Open the Xia Client.js with nodejs (test is just a copy of it for you to make changes), you will see login in the log and the bot send "Channel granted".
+Open the Xia Client.js with nodejs (test is just a copy of it for you to make changes), you will see login in the log and the bot send "Channel granted" in your channel(remember just one channel).
 # The last thing
 You can just copy my code if you are lazy. I think there is no bug in it and it will permanently work unless there is a power or Internet outage. You can get the already-made client in the releases.
 
