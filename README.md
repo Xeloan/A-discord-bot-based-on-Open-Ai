@@ -37,7 +37,7 @@ V1.00001: A very small update. I add a channel verification to make the bot only
 
 /D <Description>: create an image using DALL-E based on the description
  
-/lang 0: language set English
+/lang 0: language set English (default)
  
 /lang 1: language set Chinese
 # Preparation
