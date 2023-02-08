@@ -22,6 +22,7 @@ V1.00012: New small functions and performance improvement. I add a log function 
 V1.00001: A very small update. I add a channel verification to make the bot only work in one certain channel. (I haven't thought of a way to use just one bot in multiple channels) What's more, I improve the /D image generation to make an image cache in the DALLE_img folder and send the image itself instead of just a url, which will expire in hours.
 # Command list
 /prompt : send the prompt
+
 /clear: clear the prompt
 /save: save the prompt
 /restore: restore the prompt
