@@ -80,6 +80,10 @@ if (`${message.channel.id}` !== `${process.env.CHANNEL_ID}`){
    [year, month, day, hour, minute, second] = currentTime.match(/^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2}):(\d{2})/).slice(1);
    formattedTime = `${year}_${month}_${day}_${hour}_${minute}_${second}`;
    if (message.author.bot) return;
+   if (message.content.startsWith("/restart")) {
+    message.reply("");
+    return;
+	}
    if (busy){
    message.reply(`sent too fast`);
    return;
@@ -182,11 +186,7 @@ if (message.content.startsWith("/D")) {
     busy = false;
     return;
 	}
-   if (message.content.startsWith("/restart")) {
-    message.reply("");
-    busy = false;
-    return;
-	}
+   
    if (message.content.startsWith("/test")) {
     axios.get('https://api.openai.com/v1/models/text-davinci-003', {
   headers: {
@@ -308,7 +308,12 @@ if (lang == 1) {
 }
    prompt += `${message.content}\n`;
   (async () => {
-        const gptResponse = await openai.createCompletion({
+       let success = false;
+       let j = 0;
+       let gptResponse;
+     while(!success){
+       try{
+            gptResponse = await openai.createCompletion({
             model: "text-davinci-003",
             prompt: prompt,
             max_tokens: 512,
@@ -318,6 +323,11 @@ if (lang == 1) {
             frequency_penalty: 1,
 		stop: ["Xeloan: ", " Xia: ", "Two days later~"],
           });
+         success = true;
+       }catch(error){}
+      j+=1;
+      if (j>=3) break;
+}
         message.reply(`${gptResponse.data.choices[0].text.substring(5)}`);
         prompt += `${gptResponse.data.choices[0].text.trim()}\n`;
 	  prompt += `Xeloan: `;
