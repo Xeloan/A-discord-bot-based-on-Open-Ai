@@ -37,9 +37,9 @@ V1.00001: A very small update. I add a channel verification to make the bot only
 
 /D <Description>: create an image using DALL-E based on the description
  
-/lang 0: language set Chinese
+/lang 0: language set English
  
-/lang 1: language set English
+/lang 1: language set Chinese
 # Preparation
 After downloading and decompressing the Xia Client in the releases and installing nodejs on your computer
 First build a bot on discord:  (I just partly copy that written by Kav-K)
