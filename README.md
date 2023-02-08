@@ -24,13 +24,21 @@ V1.00001: A very small update. I add a channel verification to make the bot only
 /prompt : send the prompt
 
 /clear: clear the prompt
+
 /save: save the prompt
+
 /restore: restore the prompt
+
 /log: send the log
+
 /test: test whether Open AI API works alright
+
 /restart: restart the bot
+
 /D <Description>: create an image using DALL-E based on the description
+ 
 /lang 0: language set Chinese
+ 
 /lang 1: language set English
 # Preparation
 After downloading and decompressing the Xia Client in the releases and installing nodejs on your computer
