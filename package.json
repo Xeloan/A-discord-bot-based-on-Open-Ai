@@ -1,0 +1,22 @@
+{
+  "name": "xia",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.2.1",
+    "crypto": "^1.0.1",
+    "discord": "^0.8.2",
+    "discord.js": "^14.7.1",
+    "dotenv": "^16.0.3",
+    "fs": "^0.0.1-security",
+    "openai": "^3.1.0",
+    "path": "^0.12.7"
+  },
+  "description": ""
+}
