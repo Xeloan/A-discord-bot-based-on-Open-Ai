@@ -45,6 +45,7 @@ The module I have used is dotenv discord.js openai fs path axios crypto. You can
 
 Please notice: for users in areas where you have to use VPN or proxy to connect to the discord server, make sure your proxy can overtake all the network traffic like turning on the TUN mode in Clash For Windows. Nodejs usually skip system proxy.
 # Examples
+![image](https://user-images.githubusercontent.com/105624127/217454844-8b57e0dc-94ad-44bd-977a-ff7fbdbad034.png)
 ![Screenshot 2022-12-28 085115](https://user-images.githubusercontent.com/105624127/209741504-52921352-f66f-4f27-916f-4052181efed3.png)
 ![Screenshot 2022-12-28 085156](https://user-images.githubusercontent.com/105624127/209741519-b30f808a-2b82-4b01-a1f4-b88a75b98ed2.png)
 ![Screenshot 2022-12-28 085518](https://user-images.githubusercontent.com/105624127/209741547-c64a6142-e7b1-4828-a64e-0a8fdfd2598f.png)
