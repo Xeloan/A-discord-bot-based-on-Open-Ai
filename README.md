@@ -18,7 +18,7 @@ The bot generates chat logs in the folder logs named by the current UTC time. Us
 
 More features please see the Recent Updates ↓↓↓
 ## Recent Updates
-V1.12345: I optimize the language translation for Chinese. I also adapt fhe prompt to send a code block when you ask the bot to write a code. Please watch the examples below.
+V1.12345: I optimize the language translation for Chinese. I also adapt the prompt to send a code block when you ask the bot to write a code. Please watch the examples below.
 
 !!!!!!some bug fixed in the Ver1.1234, please update the bot program. View details in the release: https://github.com/Xeloan/A-discord-bot-based-on-Open-Ai/releases/tag/V1.1234
 
