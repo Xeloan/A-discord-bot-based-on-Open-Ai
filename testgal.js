@@ -13,8 +13,8 @@ const openai = new OpenAIApi(configuration);
 
 let prompt = ``;
 let promptbuffer = ``;
-let transE = `The sentence below is a part of a daily conversation. Translate this sentence into English. Notice that it's colloquial and don't translate words that have special meaning in Chinese.\n\n`;
-let transC = `The sentence below is a part of a daily conversation. Translate this sentence into Simplified Chinese(简体中文). This is a reply. Remain people's name like 'Elon Musk' or words that have special meaning in English or coding. Don't translate them.\n\n`;
+let transE = `The sentence below is a part of a daily conversation. Translate this sentence into English. Notice that it's colloquial. Please don't make changes to words between quotation marks. Just remain them.\n\nExample:\nInput: “勇往直前”用英语怎么翻译？\nOutput: How to translate "勇往直前" into English?\n\nInput: 你好哇！\nOutput: Hello!\n\nInput: “西尾维新”这个人你就知道吗？\nOutput: Do you know "西尾维新"?\n\nInput: `;
+let transC = `The sentence below is a part of a daily conversation. Translate this sentence into Simplified Chinese(简体中文). This is a reply. Keep people's names like Elon Musk or words that have special meaning in English or coding as they are. Please don't make changes to words between quotation marks. Just remain them.\n\nExample:\nInput:  “勇往直前” can be translated into "advance bravely".\nOutput: “勇往直前” 可以被翻译为 "advance bravely"。\n\nInput: Hello there!\nOutput: 呀哈喽！\n\nInput: `;
 fs.readFile('./prompt.pro','utf8', (err, data) => {
 	prompt = data;
 });
@@ -231,7 +231,7 @@ if (message.content.startsWith("/D")) {
      prompt = prompt.substring(0, humanIndex) + prompt.substring(nextMessageIndex, prompt.length);
    }
 if (lang == 1) {
-    let inputC = transE + `${message.content}\n\nOutput:`;
+    let inputC = transE + `${message.content}\nOutput:`;
     let response;
     let response1;
     let gptResponse;
@@ -280,13 +280,13 @@ if (lang == 1) {
             success = false;
             await reply.edit(".................................");
           
-            let inputE = transC + `${gptResponse.data.choices[0].text.substring(5)}\n\nOutput:`;
+            let inputE = transC + `${gptResponse.data.choices[0].text.substring(5)}\nOutput:`;
        while(!success){
          try{
             response1 = await openai.createCompletion({
             model: "text-davinci-003",
             prompt: inputE,
-            temperature: 1,
+            temperature: 0.5,
             max_tokens: 2000,
             top_p: 1,
             frequency_penalty: 0,
