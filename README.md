@@ -9,6 +9,8 @@ When you send a message (only works in discord channel not direct message), the 
 
 At the ver1.1234, the bot can handle other languages with lower costs of tokens, for details please view the updates.
 
+At the ver1.12345, the bot can write code in the code block for you!
+
 The image generating is much easier. Just type "/D descriptions" and the message will be sent to DALL-E. Then the bot will send you the link of the picture generated.
 If the description contains sensitive contents like "sexy", which will cause request error, the bot will send you "Invalid content" instead. (This function is important or the bot will break down if you send sensitive contents) Now the bot will send the image instead of url which will expire in hours.
 
@@ -16,6 +18,8 @@ The bot generates chat logs in the folder logs named by the current UTC time. Us
 
 More features please see the Recent Updates ↓↓↓
 ## Recent Updates
+V1.12345: I optimize the language translation for Chinese. I also adapt fhe prompt to send a code block when you ask the bot to write a code.
+
 !!!!!!some bug fixed in the Ver1.1234, please update the bot program. View details in the release: https://github.com/Xeloan/A-discord-bot-based-on-Open-Ai/releases/tag/V1.1234
 
 V1.1234: This is a major update. First, the stability has been improved a lot. I use windows bat file(now is converted to an exe file) to start Xia_Client.js, and when any error appears that causes the program to break down, it will restart automatically instead of just breaking down(You can also restart it by typing /restart). So feel free to let the bot run in your computer and leave it open at home when going out. Next, I add a "/save" command. This will save current prompt into the promptbuffer.pro and type "/restore" to restore the prompt to that one if you have mistyped something. The prompt will also be saved into the prompt_history folder for you to check. If you just turn off the bot or restart it, the prompt is also stored in the prompt.pro so the prompt will be recovered automatically when the bot is restarted. Then I add a "/test" command to test whether the api works alright. The bot will automatically check when started. Finally, I add a language set command. In most conditions, when expressing the same meaning, languages like Chinese and Japanese will much more tokens than English (sometimes more than 2x) so when the prompt becomes longer, the tokens consumed is very considerable. As a result, I come up with an idea. When I type something like “你好”(Chinese). The bot will first use the API to translate the sentence into “hello” and add it to the prompt and then generate the response. After that, the bot then translate the response into Chinese and send it to you. There are two commands. “/lang 0” means English mode, also the common mode (you can chat with the bot in other languages but as shown before, you may spend lot’s of tokens). “/lang 1”means Chinese mode. You can chat in Chinese at lower costs. (More languages will be added in the next version.)
@@ -82,3 +86,5 @@ Please notice: for users in areas where you have to use VPN or proxy to connect 
 ![image](https://user-images.githubusercontent.com/105624127/217455330-1e546f2a-68bc-4b99-ae1a-f33bb33659da.png)
 ![image](https://user-images.githubusercontent.com/105624127/217455548-1bcc493a-b5c6-4600-b0c2-01a7feee986d.png)
 ![image](https://user-images.githubusercontent.com/105624127/217458931-df534a20-1e2d-4dc7-9a39-6d236eed61dd.png)
+![Screenshot 2023-02-10 224950](https://user-images.githubusercontent.com/105624127/218122818-61a79f9f-7fcc-441c-ab37-dcf92d0f8768.png)
+![Screenshot 2023-02-10 225015](https://user-images.githubusercontent.com/105624127/218122851-e91f9cdd-befb-41d9-ace4-fa793506302e.png)
