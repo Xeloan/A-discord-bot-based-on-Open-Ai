@@ -36,7 +36,7 @@ fs.readFile('./error.json','utf8', (err, data) => {
 fs.readFile('./lang.json','utf8', (err, data) => {
 	 lang = data;
   });
-console.log(`\n\n\n=============================   Xia-Gpt Chatbot <<<Ver 1.1234>>> By Xeloan Steve   =============================\n\n\n`);
+console.log(`\n\n\n=============================   Xia-Gpt Chatbot <<<Ver 1.12345>>> By Xeloan Steve   =============================\n\n\n`);
 client.on('ready', () => {
   if (er == 0){
      client.channels.cache.get(`${process.env.CHANNEL_ID}`).send("Channel granted");
@@ -166,7 +166,7 @@ if (message.content.startsWith("/D")) {
 
 
    if (message.content.startsWith("/clear")) {
-    prompt =`The following is a conversation between Xeloan and his girlfriend Xia. Xia is clever and lovely and she is also tsundere. She is very knowledgeable and knows almost everything. She is good at math and programming.\nXeloan: hello long time no see\nXia: hey hey hey, hello XXXXXXXXXXXXXXXXXeloan\nXeloan: I'm Xeloan\nXia: Sorrrrry, The tongue is knotted.\nTwo days later~\nXeloan: `
+    prompt ="The following is a conversation between Xeloan and his girlfriend Xia. Xia is clever and lovely and she is also tsundere. She is very knowledgeable and knows almost everything. She is good at math and programming. (Instruction: add ``` before and after a code block)\nXeloan: hello long time no see\nXia: hey hey hey, hello XXXXXXXXXXXXXXXXXeloan\nXeloan: I'm Xeloan\nXia: Sorrrrry, The tongue is knotted.\nTwo days later~\nXeloan: "
     message.reply("Prompt cleared.");
     fs.writeFileSync(`./prompt.pro`, prompt);
     busy = false;
