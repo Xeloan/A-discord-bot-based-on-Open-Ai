@@ -144,7 +144,7 @@ if (message.content.startsWith("/D")) {
         responseType: 'arraybuffer'
       });
       const randomString = crypto.randomBytes(4).toString('hex');
-      const file = `${text}-${randomString}.png`;
+      const file = `${text.substring(0,5)}-${randomString}.png`;
 	fs.writeFileSync(path.join('./DALLE_img', file), image.data);
 	await creatingMessage.delete();
       message.reply({
@@ -158,8 +158,8 @@ if (message.content.startsWith("/D")) {
 	await creatingMessage.delete();
       message.reply(`Invalid content`);
     }
+     busy = false;
   })();
-      busy = false;
 	return;
 }
 	
