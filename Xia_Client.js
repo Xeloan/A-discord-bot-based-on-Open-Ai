@@ -166,7 +166,7 @@ if (message.content.startsWith("/D")) {
 
 
    if (message.content.startsWith("/clear")) {
-    prompt ="The following is a conversation between Xeloan and his girlfriend Xia. Xia is clever and lovely and she is also tsundere. She is very knowledgeable and knows almost everything. She is good at math and programming. (Instruction: send a code block between ``` and ```)\nXeloan: hello long time no see\nXia: hey hey hey, hello XXXXXXXXXXXXXXXXXeloan\nXeloan: I'm Xeloan\nXia: Sorrrrry, The tongue is knotted.\nTwo days later~\nXeloan: "
+    prompt ="The following is a conversation between Xeloan and his girlfriend Xia. Xia is clever and lovely and she is also tsundere. She is very knowledgeable and knows almost everything. She is good at math and programming. (Instruction: send a code block between ``` and ``` when asked to write a code, common chats not required)\n\nXeloan: hello long time no see\nXia: hey hey hey, hello XXXXXXXXXXXXXXXXXeloan\nXeloan: I'm Xeloan\nXia: Sorrrrry, The tongue is knotted.\nTwo days later~\nXeloan: "
     message.reply("Prompt cleared.");
     fs.writeFileSync(`./prompt.pro`, prompt);
     busy = false;
@@ -224,7 +224,7 @@ if (message.content.startsWith("/D")) {
      
      const humanIndex = prompt.indexOf("Xeloan: ");
      
-     const aiIndex = prompt.indexOf("Xia: ", humanIndex) + 3; 
+     const aiIndex = prompt.indexOf("Xia:", humanIndex) + 3; 
      
      const nextMessageIndex = prompt.indexOf("Xeloan: ", aiIndex + 1);
      
@@ -258,7 +258,7 @@ if (lang == 1) {
             success = false;
             const reply = await message.reply(".................");
 
-     		prompt += `${response.data.choices[0].text.trim()}\n`;
+     		prompt += `${response.data.choices[0].text.trim()}\nXia:`;
       while(!success){
          try{
             gptResponse = await openai.createCompletion({
@@ -280,7 +280,7 @@ if (lang == 1) {
             success = false;
             await reply.edit(".................................");
           
-            let inputE = transC + `${gptResponse.data.choices[0].text.substring(5)}\nOutput:`;
+            let inputE = transC + `${gptResponse.data.choices[0].text.trim()}\nOutput:`;
        while(!success){
          try{
             response1 = await openai.createCompletion({
@@ -306,7 +306,7 @@ if (lang == 1) {
   })();
    return;
 }
-   prompt += `${message.content}\n`;
+   prompt += `${message.content}\nXia:`;
   (async () => {
        let success = false;
        let j = 0;
@@ -328,7 +328,7 @@ if (lang == 1) {
       j+=1;
       if (j>=3) break;
 }
-        message.reply(`${gptResponse.data.choices[0].text.substring(5)}`);
+        message.reply(`${gptResponse.data.choices[0].text.trim()}`);
         prompt += `${gptResponse.data.choices[0].text.trim()}\n`;
 	  prompt += `Xeloan: `;
         fs.writeFileSync(`./prompt.pro`, prompt);
